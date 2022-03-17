@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Do you love me?</title>
+</head>
+<body>
+    <script>
+        let q = prompt("Do you love me?");
+        while(q){
+            if(q === "yes"){
+                document.write("I love you too")
+                break;
+            }
+            if(q === "no"){
+                q = prompt("Do you love me?");
+            }
+        }
+    </script>
+</body>
+</html>

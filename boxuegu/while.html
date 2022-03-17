@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>While Loop</title>
+</head>
+<body>
+    <script>
+        let i = 1;
+        let sumOdd = 0;
+        while (i < 100) {
+            if(i % 2 !== 0 ){      
+              document.write(`第${i}次奇数和：${sumOdd += i}<br/>`);
+            }
+
+            i++;
+        }
+        let sum = 0;
+        let j = 1;
+        while(j <= 100){
+            document.write(`第${j}次总和是：${sum += j}<br/>`);
+            j++;
+        }
+    </script>
+</body>
+</html>

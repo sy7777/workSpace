@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculater</title>
+</head>
+<body>
+    <script>
+        let num1 = +prompt("enter the first number");
+        let sp = prompt("enter the operater");
+        let num2 = +prompt("enter the second number");
+
+
+        switch (sp) {
+            case "+":
+                document.write(`the total number: ${num1 + num2}`)
+                break;
+            case "-":
+                document.write(`the total number: ${num1 - num2}`)
+                break;
+            case "*":
+                document.write(`the total number: ${num1 * num2}`)
+                break;  
+            case "/":
+                document.write(`the total number: ${num1 / num2}`)
+                break;       
+            default:
+                document.write(`sorry, wrong input`)
+        }
+    </script>
+</body>
+</html>
