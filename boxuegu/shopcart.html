@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop Cart</title>
+    <style>
+        div{
+            width:80px;
+        }
+        input[type=text]{
+            width: 50px;
+            height: 37px;
+            outline: none;
+            border: 1px solid #ccc;
+            text-align: center;
+            border-right: 0;
+        }
+        inut[type=button]{
+            height: 25px;
+            width: 22px;
+            cursor: pointer;
+        }
+        input{
+            float: left;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <input type="text" id="total" value="1" readonly>
+        <input type="button" id="add" value="+">
+        <input type="button" id="reduce" value="--" disabled>
+        <script>
+            let total = document.querySelector("#total");
+            let add = document.querySelector("#add");
+            let reduce = document.querySelector("#reduce");
+            add.addEventListener('click',()=>{
+                // i++是饮食转换，如果写成+=1，则变为11,111,1111，依次拼接
+                total.value ++
+                // console.log(total.value);
+                reduce.disabled = false;
+            })
+            reduce.addEventListener('click', ()=>{
+                total.value--;
+                console.log(total.value);
+                if(total.value == 1){
+                    console.log("here");
+                    // add.readonly = false;
+                    reduce.disabled = true;
+                  
+                }
+            })
+        </script>
+    </div>
+
+
+</body>
+</html>
