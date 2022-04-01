@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="clock"></div>
+    <script>
+        // let arr = [3, 2, 5, 4, 1, 3]
+        // for (let i = 0; i < arr.length-1; i++){
+        //     for(let j = 0; j < arr.length - i -1; j++){
+        //         if(arr[j]>arr[j+1]){
+        //             let temp = arr[j];
+        //             arr[j] = arr[j+1];
+        //             arr[j+1]=temp;
+        //         }
+        //     }
+        // }
+        // console.log(arr);
+        function find_total(my_numbers) {
+            // let oddNum = 0;
+            // let evenNum = 0;
+            // let fiveNum = 0;
+            let sum = 0;
+            for (let i = 0; i < my_numbers.length; i++) {
+               console.log(my_numbers[i]);
+                if (my_numbers[i] % 2 === 0) {
+                    sum += 1;
+                    // console.log("even", sum);
+                }
+                else if (my_numbers[i] % 2 !== 0 & my_numbers[i] !== 5) {
+                    sum += 3;
+                    // console.log("odd",sum);
+                }
+                else if (my_numbers[i] === 5) {
+                    sum += 5;
+                    // console.log("5",sum);
+                }
+            //    i++;
+            } 
+            return sum;
+        }
+        find_total([1, 2, 3, 4, 5])
+        
+        setInterval(()=>{
+            let date = new Date();
+        // console.log(date);
+        let month = date.getMonth() + 1;
+        // console.log(month);
+            document.querySelector(".clock").innerHTML=`${date}`
+        })
+        
+    </script>
+</body>
+
+</html>

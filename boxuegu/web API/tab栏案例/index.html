@@ -96,7 +96,7 @@
   </div>
 
 <script>
-  // let actvieTab = document.querySelector(".tab .active");
+  let actvieTab = document.querySelector(".tab .active");
   // let actvieProduct = document.querySelector(".products .active");
   let mainDomList = document.querySelectorAll(".main");
   let tabDomList = document.querySelectorAll(".tab .tab-item")
@@ -104,9 +104,9 @@
   for(let i = 0; i<tabDomList.length; i++){
     tabDomList[i].addEventListener('click',function(){
       // 找到以前的active类
-      document.querySelector(".tab .active").classList.remove("active");
+      // document.querySelector(".tab .active").classList.remove("active");
       // console.log(actvieTab);
-      // actvieTab.classList.remove("active");
+      actvieTab.classList.remove("active");
       // 当前元素添加  
       // console.log(this);
       this.classList.add("active")
