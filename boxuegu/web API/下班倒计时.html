@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
+  <title>Dale's Timer</title>
   <style>
     .countdown {
       width: 240px;
@@ -120,7 +120,7 @@
 
 <body>
   <div class="box">
-    <div style="font-family:cursive; font-size: 27px; font-weight: 500;">The timer for <b>Dale</b> Happy Friday !!!</div>
+    <div style="font-family:cursive; font-size: 27px; font-weight: 500;">The timer for <b>Dale</b> Happy <span id="riqi"></span> !!!</div>
     <div class="countdown">
       <p class="next"></p>
       <p class="title">下班倒计时</p>
@@ -147,9 +147,11 @@
     let year = date.getFullYear();
     let month = date.getMonth() + 1;
     let day = date.getDate();
-
+    let riqiDom = document.querySelector('#riqi');
     next.innerHTML = `今天是${year}年${month}月${day}日`;
-
+    const weekday = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+    let riqi = weekday[date.getDay()];
+    riqiDom.innerHTML = `${riqi}`;
     getCurrentTime();
     setInterval(getCurrentTime, 1000)
     timer();
@@ -167,7 +169,7 @@
       // 得到现在的时间戳
       let now = +new Date();
       // 得到指定的时间戳
-      let last = +new Date('2022-04-01 16:00:00');
+      let last = +new Date(`${year}-${month}-${day} 15:40:00`);
       // （计算剩余毫秒数）/ 1000 === 剩余的秒数
       let count = (last - now) / 1000;
       // console.log(count);
@@ -184,6 +186,7 @@
       minutes.innerHTML = m;
       second.innerHTML = s;
     }
+
   </script>
 </body>
 
