@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button @click="remove('9fde47ed-c88d-4513-87be-21f4e19f0c03')">
+      delete
+    </button>
+    <button @click="publish(`${[
+      "9fde47ed-c88d-4513-87be-21f4e19f0c03",
+      "eecc0c6e-99cc-4502-8597-4f231738df69",
+    ]}`)">
+      publish
+    </button>
+
+    <script>
+      const words = [
+        {
+          project: {
+            id: "9fde47ed-c88d-4513-87be-21f4e19f0c03",
+            name: "project3",
+            description: "it is a project3",
+            legacyId: null,
+            bespoke: null,
+            createdAt: 2022 - 12 - 05,
+            updatedAt: 2022 - 12 - 05,
+            deletedAt: null,
+          },
+          form: {
+            id: "de3fdca1-755a-49b5-aa97-d6bf091cb530",
+            controls: [Array],
+            name: "new ",
+            published: true,
+            createdAt: 2022 - 12 - 06,
+            updatedAt: 2022 - 12 - 06,
+          },
+        },
+        {
+          project: {
+            id: "eecc0c6e-99cc-4502-8597-4f231738df69",
+            name: "project2",
+            description: "it is a project2",
+            legacyId: null,
+            bespoke: null,
+            createdAt: 2022 - 12 - 05,
+            updatedAt: 2022 - 12 - 05,
+            deletedAt: null,
+          },
+          form: {
+            id: "de3fdca1-755a-49b5-aa97-d6bf091cb530",
+            controls: [Array],
+            name: "new ",
+            published: true,
+            createdAt: 2022 - 12 - 06,
+            updatedAt: 2022 - 12 - 06,
+          },
+        },
+      ];
+      const formProject = {
+        formId: "de3fdca1-755a-49b5-aa97-d6bf091cb530",
+        projectIds: [
+          "9fde47ed-c88d-4513-87be-21f4e19f0c03",
+          "eecc0c6e-99cc-4502-8597-4f231738df69",
+        ],
+      };
+
+      const result = words.filter(
+        (i) => !formProject.projectIds.includes(i.project.id)
+      );
+
+      console.log(result);
+      function remove(id) {
+        console.log(id);
+      }
+
+      function publish(formProjectInput) {
+        const invitationToDelete = formProject.filter((i) =>
+          formProjectInput.includes(invitation.project.id)
+        );
+        console.log(invitationToDelete);
+      }
+    </script>
+  </body>
+</html>
