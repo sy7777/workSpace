@@ -1,0 +1,66 @@
+
+      const html_to_pdf = require("html-pdf-node");
+      const PDFDocument = require("pdfkit");
+      const fs = require("fs");
+      const path = require("path");
+
+      /**
+       * 不可填写pdf
+       */
+      const options = { format: "A4" };
+
+      const file = { content: "<input type='text' placeholder='name'>" };
+
+      html_to_pdf.generatePdf(file, options).then((pdfBuffer) => {
+        fs.writeFile(
+          path.join(__dirname, "html-pdf.pdf"),
+          pdfBuffer,
+          console.log
+        );
+      });
+
+      /**
+       * 可填写pdf
+       */
+
+      const doc = new PDFDocument();
+
+      doc.pipe(fs.createWriteStream(path.join(__dirname, "fillable-pdf.pdf")));
+
+      doc.font("Helvetica"); // establishes the default font
+      doc.initForm();
+
+      const rootField = doc.formField("rootField");
+      const child1Field = doc.formField("child1Field", { parent: rootField });
+      const child2Field = doc.formField("child2Field", { parent: rootField });
+
+      // Add text form annotation 'rootField.child1Field.leaf1'
+      doc.formText("leaf1", 10, 10, 200, 40, {
+        parent: child1Field,
+        multiline: true,
+        backgroundColor: "grey",
+      });
+      // Add text form annotation 'rootField.child1Field.leaf2'
+      doc.formText("leaf2", 10, 60, 200, 40, {
+        parent: child1Field,
+        multiline: true,
+        backgroundColor: "grey",
+      });
+      // Add text form annotation 'rootField.child2Field.leaf1'
+      doc.formText("leaf1", 10, 110, 200, 80, {
+        parent: child2Field,
+        multiline: true,
+        backgroundColor: "grey",
+      });
+
+      // Add push button form annotation 'btn1'
+      const opts = {
+        backgroundColor: "yellow",
+        label: "Test Button",
+      };
+      doc.formPushButton("btn1", 10, 200, 100, 30, opts);
+
+      doc.end();
+    </script>
+  </body>
+</html>
